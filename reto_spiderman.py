@@ -14,4 +14,4 @@ if (puntoA<0 and puntoB>0):
 elif (puntoB>puntoA and puntoB>0 and puntoA>0):
     print ("Si vas primero al punto A la distancia es de",(puntoB), "kilómetros")
     print ("Si vas primero al punto B la distancia", (puntoB+puntoA), "kilómetros")
-elif (punto)
+elif (puntoA)
