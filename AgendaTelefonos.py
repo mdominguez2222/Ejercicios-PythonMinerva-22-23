@@ -19,8 +19,5 @@ telefono = input("Dime un teléfono: \n")
 vNombres.append(nombre)
 vTelefonos.append(telefono)
 
-vNombres.append("Mario")
-vTelefonos.append("234")
+print (f"El teléfono de {vNombres} es {vTelefonos}")
 
-print (vNombres)
-print (vTelefonos)
