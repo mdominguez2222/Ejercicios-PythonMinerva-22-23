@@ -1,4 +1,4 @@
-'''
+
 #bucle while
 
 i=0
@@ -11,7 +11,6 @@ while (bandera == True):
     if (i == 30000):
         bandera = False
 print ("Terminado")
-'''
 
 
 '''
@@ -32,6 +31,7 @@ while (i<=10):
     i=i+1
 '''
 
+'''
 #Contraseña
 
 contra = "Paca34"
@@ -45,5 +45,4 @@ while (incorrecta != contra):
 if (incorrecta == contra):
 
     print("Felicidades, has entrado")
-
-      
+'''
