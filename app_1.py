@@ -30,9 +30,15 @@ def guardar_Datos():
 #Configuración ventana
 ventana = Tk()
 ventana.title("Almacenamiento de datos")
-ventana.geometry("350x250")
+ventana.geometry("350x300")
 ventana.resizable(width=False,height=False)
 ventana.config(background="beige")
+
+combo_sexo = ttk.Combobox(ventana, values=["Hombre","Mujer"], state="readonly")
+combo_sexo.set("Elige un sexo")
+combo_sexo.place(x=90, y =250)
+
+
 
 
 #Titulo principal
@@ -66,8 +72,6 @@ entry_repite_pass_usuario.grid(row=3,column=1,pady=10)
 
 boton_Guardar.grid(row=4,column=0,pady=30)
 boton_Salir.grid(row=4,column=1,pady=30)
-
-
 
 
 
