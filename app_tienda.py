@@ -18,7 +18,7 @@ combo_alimentos2 = ttk.Combobox(ventana, values=[""], state="readonly")
 combo_alimentos2.set("")
 combo_alimentos2.place(x=90,y=200)
 
-boton_Guardar = ttk.Button(ventana, text="Guardar", command=guardar_Datos)
+boton_Guardar = ttk.Button(ventana, text="Guardar")
 
 
 ventana.mainloop()
