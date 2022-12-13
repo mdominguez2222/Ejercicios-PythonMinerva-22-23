@@ -19,8 +19,8 @@ def main(page: ft.Page):
     page.update() #Refrescar la pantalla para poner un nuevo texto
 
     #Componente Botón               Generar icono                        Declarar función
-    boton= ft.FloatingActionButton(icon=ft.icons.ADD, on_click= cambiarColor)
-    page.add(boton)
+    boton_Tienda= ft.FloatingActionButton(icon=ft.icons.ADD, on_click= cambiarColor)
+    page.add(boton_Tienda)
 
     
     textField_Nombre= ft.TextField(label="Nombre", hint_text="Escribe tu nombre")

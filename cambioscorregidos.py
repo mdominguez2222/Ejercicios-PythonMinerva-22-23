@@ -1,3 +1,4 @@
+'''
 import flet as ft
 
 
@@ -7,12 +8,7 @@ def main(page: ft.Page):
     page.title= "TIENDA DOMÍNGUEZ"
     def mostrarCesta(e):
         vAlimentos.append(dropDown_Carnes.value)
-        vAlimentos.append(dropDown_Verduras.value)
         print(vAlimentos)
-
-    def añadirAlimentos(e):
-        dropDown_Carnes.options.append(ft.dropdown.Option(textComida.value))
-        page.update()
 
         
 
@@ -47,13 +43,8 @@ def main(page: ft.Page):
     page.update()
 
     #Crear fila
-    fila = ft.Row(controls=[textField_Nombre, dropDown_Verduras, dropDown_Carnes, boton_añadir])
+    fila = ft.Row(controls=[textField_Nombre, dropDown_Verduras, dropDown_Carnes])
     page.add(fila)
-
-    #Botón añadir
-    textComida = ft.TextField(label="Alimentos", hint_text="Alimentos añadidos")
-    boton_añadir = ft.FloatingActionButton(icon=ft.icons.ADD, on_click=añadirAlimentos)
-    page.update()
 
     #Botón mostrar carrito
     boton_cesta= ft.FloatingActionButton(icon=ft.icons.SHOP, on_click= mostrarCesta)
@@ -62,4 +53,31 @@ def main(page: ft.Page):
     
 
 
-ft.app(target=main, view="web_browser")
+ft.app(target=main)
+
+'''
+
+
+vAlimentos = []
+
+import flet as ft
+
+def main(page: ft.Page):
+    def find_option(option_name):
+        for option in barra:
+            if option_name == option.key:
+                return option
+        return None
+
+    def add_clicked(e):
+        vAlimentos.append(option_textbox.value)
+        vAlimentos(barra.value)
+        option_textbox.value
+        page.update()
+
+    barra = ft.TextField()
+    option_textbox = ft.TextField(hint_text="Enter item name")
+    add = ft.ElevatedButton("Add", on_click=add_clicked)
+    page.add(barra, ft.Row(controls=[option_textbox, add]))
+
+ft.app(target=main)
