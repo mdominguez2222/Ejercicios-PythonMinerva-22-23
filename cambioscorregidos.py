@@ -1,4 +1,4 @@
-'''
+
 import flet as ft
 
 
@@ -55,29 +55,3 @@ def main(page: ft.Page):
 
 ft.app(target=main)
 
-'''
-
-
-vAlimentos = []
-
-import flet as ft
-
-def main(page: ft.Page):
-    def find_option(option_name):
-        for option in barra:
-            if option_name == option.key:
-                return option
-        return None
-
-    def add_clicked(e):
-        vAlimentos.append(option_textbox.value)
-        vAlimentos(barra.value)
-        option_textbox.value
-        page.update()
-
-    barra = ft.TextField()
-    option_textbox = ft.TextField(hint_text="Enter item name")
-    add = ft.ElevatedButton("Add", on_click=add_clicked)
-    page.add(barra, ft.Row(controls=[option_textbox, add]))
-
-ft.app(target=main)

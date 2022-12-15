@@ -8,10 +8,11 @@ def main(page: ft.Page):
     def mostrarCesta(e):
         vAlimentos.append(dropDown_Carnes.value)
         vAlimentos.append(dropDown_Verduras.value)
+        textComida.value = vAlimentos
         print(vAlimentos)
 
     def añadirAlimentos(e):
-        dropDown_Carnes.options.append(ft.dropdown.Option(textComida.value))
+        textComida.value = vAlimentos
         page.update()
 
         
@@ -47,13 +48,14 @@ def main(page: ft.Page):
     page.update()
 
     #Crear fila
-    fila = ft.Row(controls=[textField_Nombre, dropDown_Verduras, dropDown_Carnes, boton_añadir])
+    fila = ft.Row(controls=[textField_Nombre, dropDown_Verduras, dropDown_Carnes])
     page.add(fila)
 
     #Botón añadir
     textComida = ft.TextField(label="Alimentos", hint_text="Alimentos añadidos")
-    boton_añadir = ft.FloatingActionButton(icon=ft.icons.ADD, on_click=añadirAlimentos)
-    page.update()
+    boton_añadir = ft.FilledButton("Añadir a la cesta", icon="add", on_click=añadirAlimentos)#ft.FilledButton("Button with icon", icon="add")
+    page.add(boton_añadir)
+    page.add(textComida)
 
     #Botón mostrar carrito
     boton_cesta= ft.FloatingActionButton(icon=ft.icons.SHOP, on_click= mostrarCesta)
@@ -62,4 +64,4 @@ def main(page: ft.Page):
     
 
 
-ft.app(target=main, view="web_browser")
+ft.app(target=main)#view="web_browser")
