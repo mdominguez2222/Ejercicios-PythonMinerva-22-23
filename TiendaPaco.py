@@ -5,24 +5,40 @@ vAlimentos = []
 
 def main(page: ft.Page):
     page.title= "TIENDA DOMÍNGUEZ"
-    def mostrarCesta(e):
-        vAlimentos.append(dropDown_Carnes.value)
-        vAlimentos.append(dropDown_Verduras.value)
-        textComida.value = vAlimentos
-        print(vAlimentos)
+    def guardarenCesta(e):
+        textoCestapop.value = vAlimentos
+        page.update()
 
     def añadirAlimentos(e):
-        textComida.value = vAlimentos
+        vAlimentos.append(dropDown_Carnes.value)
+        vAlimentos.append(dropDown_Verduras.value)
+        #textComida.value = vAlimentos
+        for i in vAlimentos:
+            textComida.value += "-" + i
+
         page.update()
+
+    #Funciones del pop up cesta (mostrar alimentos en la cesta)
+
+    def bs_dismissed(e):
+        print("Dismissed!")
+
+    def mostrar(e):
+        bs.open = True
+        bs.update()
+
+    def cerrar(e):
+        bs.open = False
+        bs.update()
 
         
 
     #Crear texto
     t = ft.Text(value="Tienda Domínguez", color= "black", size=30, font_family="Times New Roman")
     page.add(t)
+
     #Poner en la pantalla el texto
-       #add hace dos cosas: 1-Añadir 2-Actualizar
-    t.value="BIENVENIDO"
+    t.value="BIENVENIDO A TIENDA DOMÍNGUEZ"
     
     page.update() #Refrescar la pantalla para poner un nuevo texto
 
@@ -58,9 +74,31 @@ def main(page: ft.Page):
     page.add(textComida)
 
     #Botón mostrar carrito
-    boton_cesta= ft.FloatingActionButton(icon=ft.icons.SHOP, on_click= mostrarCesta)
+    boton_cesta= ft.FloatingActionButton(icon=ft.icons.SHOP, on_click= guardarenCesta)
     page.add(boton_cesta)
 
+
+    textoCestapop = ft.Text("Cesta: ")
+    bs = ft.BottomSheet(
+        ft.Container(
+            ft.Column(
+                [
+                    textoCestapop,
+                    ft.ElevatedButton("Cerrar cesta", on_click=cerrar),
+                ],
+                tight=True,
+            ),
+            padding=10,
+        ),
+        open=False,
+        on_dismiss=bs_dismissed,
+    )
+    page.overlay.append(bs)
+    page.add(ft.FloatingActionButton(icon=ft.icons.SHOP, on_click=mostrar))
+
+    #imagen
+    img = ft.Image(src="https://www.ilcapo.net/wp-content/uploads/2019/01/productos-naturales-andiamo1.jpg",width=200, height=550,border_radius=ft.border_radius.all(10))
+    page.add(img)
     
 
 
