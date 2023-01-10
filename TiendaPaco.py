@@ -97,9 +97,11 @@ def main(page: ft.Page):
     page.add(ft.FloatingActionButton(icon=ft.icons.SHOP, on_click=mostrar))
 
     #imagen
-    img = ft.Image(src="https://www.ilcapo.net/wp-content/uploads/2019/01/productos-naturales-andiamo1.jpg",width=200, height=550,border_radius=ft.border_radius.all(10))
+    img = ft.Image(src="https://www.ilcapo.net/wp-content/uploads/2019/01/productos-naturales-andiamo1.jpg",width=400, height=550,)
     page.add(img)
     
+    
+    page.add(ft.Image(src=f"/imagenes/bananaicono.png"))
 
 
-ft.app(target=main)#view="web_browser")
+ft.app(target=main, assets_dir="imagenes")#view="web_browser)
